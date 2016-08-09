@@ -13,7 +13,7 @@ class CreateGeolocationDatasTable extends Migration
     public function up()
     {
         Schema::create('geolocation_datas', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->timestamps();
         });
     }
