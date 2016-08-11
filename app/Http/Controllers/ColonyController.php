@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\Colony;
+use App\ColonyScope;
 use App\Http\Requests;
+use App\PersonalInformation;
+use App\SettlementType;
+use Illuminate\Http\Request;
 
 class ColonyController extends Controller
 {
@@ -15,7 +18,12 @@ class ColonyController extends Controller
      */
     public function index()
     {
-        //
+        $colonies=Colony::all();
+        //$scopes=ColonyScope::all('id','name');
+       // $settlements=SettlementType::all('id','name');
+       //return $settlementType;
+       //dd($colonies);
+        return  view('admin.colonies.index',compact('colonies'));
     }
 
     /**
@@ -24,8 +32,10 @@ class ColonyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   
+             $scopes=ColonyScope::lists('name','id');
+            $settlements=SettlementType::lists('name', 'id');
+            return view ('admin.colonies.create', compact('scopes','settlements'));
     }
 
     /**
@@ -36,7 +46,12 @@ class ColonyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //return $request->colony_scope_id+1;
+        $colony=Colony::create($request->all());
+        $colony->colonyScopes()->associate(ColonyScope::find($request->colony_scope_id))->save();
+        $colony->settlementTypes()->associate(SettlementType::find($request->settlement_type_id))->save();
+        return redirect()->route('colonies.index');
+        //return $request->all();
     }
 
     /**
@@ -47,7 +62,13 @@ class ColonyController extends Controller
      */
     public function show($id)
     {
-        //
+        $colony=Colony::find($id);
+        //return $colony;
+        $scopes=ColonyScope::lists('name','id');
+        $settlements=SettlementType::lists('name', 'id');
+        $i=$colony->personalInformation()->count();
+        
+        return view('admin.colonies.show', compact('colony','scopes','settlements','i'));
     }
 
     /**
@@ -58,7 +79,11 @@ class ColonyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $colony=Colony::find($id);
+        $scopes=ColonyScope::lists('name','id');
+        $settlements=SettlementType::lists('name', 'id');
+        $i=$colony->personalInformation()->count();
+        return view('admin.colonies.edit', compact('colony','scopes','settlements','i'));
     }
 
     /**
@@ -70,8 +95,14 @@ class ColonyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $colony=Colony::find($id);
+        $colony->update($request->all());
+        $colony->colonyScopes()->associate(ColonyScope::find($request->colony_scope_id))->save();
+        $colony->settlementTypes()->associate(SettlementType::find($request->settlement_type_id))->save();
+        return redirect('colonies/' . $colony->id .'/edit');
+        return $colony;
     }
+   
 
     /**
      * Remove the specified resource from storage.
@@ -81,6 +112,9 @@ class ColonyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $colony=Colony::find($id);
+        $colony->delete();
+
+        return redirect('colonies');
     }
 }
