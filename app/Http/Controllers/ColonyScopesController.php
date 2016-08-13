@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class RoleController extends Controller
+class ColonyScopesController extends Controller
 {
     /**
      * Display a listing of the resource.

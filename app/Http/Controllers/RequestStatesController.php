@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class RequestTypeController extends Controller
+class RequestStatesController extends Controller
 {
     /**
      * Display a listing of the resource.

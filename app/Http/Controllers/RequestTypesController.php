@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class AppleBosseController extends Controller
+class RequestTypesController extends Controller
 {
     /**
      * Display a listing of the resource.

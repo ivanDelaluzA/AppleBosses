@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class PermissionController extends Controller
+class SettlementTypesController extends Controller
 {
     /**
      * Display a listing of the resource.

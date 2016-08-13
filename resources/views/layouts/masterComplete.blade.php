@@ -9,8 +9,8 @@
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title> @yield('title')</title>
 
-	<meta name="description" content="Pleasure is responsive, material admin dashboard panel">
-	<meta name="author" content="Teamfox">
+	<meta name="description" content="">
+	<meta name="author" content="">
 
 	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-md-4">
-                        <h1 class="pull-right">Hidrosistema<small> Sistema de atención</small></h1>
+                        <h1 class="pull-right">H. Ayuntamiento De Cordoba<small> Sistema de geolocalizacion de Jefes de Manzana</small></h1>
                     </div><!--.col-->
                 </div><!--.row-->
             </div><!--.page-header-->

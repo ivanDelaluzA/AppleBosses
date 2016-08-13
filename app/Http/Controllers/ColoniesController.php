@@ -9,7 +9,7 @@ use App\PersonalInformation;
 use App\SettlementType;
 use Illuminate\Http\Request;
 
-class ColonyController extends Controller
+class ColoniesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +19,7 @@ class ColonyController extends Controller
     public function index()
     {
         $colonies=Colony::all();
-        //$scopes=ColonyScope::all('id','name');
+        //$scopes=oColonyScope::all('id','name');
        // $settlements=SettlementType::all('id','name');
        //return $settlementType;
        //dd($colonies);

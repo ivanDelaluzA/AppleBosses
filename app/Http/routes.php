@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::resource('users', 'UserController');
 Route::resource('colonies/scopes', 'ColonyScopesController');
 Route::resource('colonies/settlement-types', 'SettlementTypesController');
-Route::resource('colonies', 'ColonyController');
+Route::resource('colonies', 'ColoniesController');
 
 Route::resource('notifications', 'NotificationsController');
 
