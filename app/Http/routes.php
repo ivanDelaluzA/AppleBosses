@@ -15,12 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('users', 'UserController');
+Route::resource('users', 'UsersController');
 Route::resource('colonies/scopes', 'ColonyScopesController');
 Route::resource('colonies/settlement-types', 'SettlementTypesController');
 Route::resource('colonies', 'ColoniesController');
-
-Route::resource('notifications', 'NotificationsController');
 
 Route::resource('permissions', 'PermissionsController');
 
@@ -31,6 +29,8 @@ Route::resource('requests', 'RequestsController');
 Route::resource('requestsStates', 'RequestStatesController');
 
 Route::resource('requestsTypes', 'RequestTypesController');
+
+Route::resource('appleBosses', 'appleBossesController');
 
 Route::resource('roles', 'RolesController');
 
