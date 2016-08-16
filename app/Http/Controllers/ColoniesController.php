@@ -33,7 +33,7 @@ class ColoniesController extends Controller
      */
     public function create()
     {   
-             $scopes=ColonyScope::lists('name','id');
+            $scopes=ColonyScope::lists('name','id');
             $settlements=SettlementType::lists('name', 'id');
             return view ('admin.colonies.create', compact('scopes','settlements'));
     }
@@ -46,10 +46,10 @@ class ColoniesController extends Controller
      */
     public function store(Request $request)
     {
-        //return $request->colony_scope_id+1;
+    	//return $request->all();
         $colony=Colony::create($request->all());
-        $colony->colonyScopes()->associate(ColonyScope::find($request->colony_scope_id))->save();
-        $colony->settlementTypes()->associate(SettlementType::find($request->settlement_type_id))->save();
+        $colony->colonyScope()->associate(ColonyScope::find($request->colony_scope_id))->save();
+        $colony->settlementType()->associate(SettlementType::find($request->settlement_type_id))->save();
         return redirect()->route('colonies.index');
         //return $request->all();
     }
@@ -63,7 +63,6 @@ class ColoniesController extends Controller
     public function show($id)
     {
         $colony=Colony::find($id);
-        //return $colony;
         $scopes=ColonyScope::lists('name','id');
         $settlements=SettlementType::lists('name', 'id');
         $i=$colony->personalInformation()->count();
@@ -97,8 +96,8 @@ class ColoniesController extends Controller
     {
         $colony=Colony::find($id);
         $colony->update($request->all());
-        $colony->colonyScopes()->associate(ColonyScope::find($request->colony_scope_id))->save();
-        $colony->settlementTypes()->associate(SettlementType::find($request->settlement_type_id))->save();
+        $colony->colonyScope()->associate(ColonyScope::find($request->colony_scope_id))->save();
+        $colony->settlementType()->associate(SettlementType::find($request->settlement_type_id))->save();
         return redirect('colonies/' . $colony->id .'/edit');
         return $colony;
     }
@@ -114,7 +113,6 @@ class ColoniesController extends Controller
     {
         $colony=Colony::find($id);
         $colony->delete();
-
         return redirect('colonies');
     }
 }

@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Colony;
+use App\Http\Requests;
+use App\Http\Requests\StoreUserRequest;
+use App\PersonalInformation;
+use App\Role;
+use App\User;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+
 
 class UsersController extends Controller
 {
+   
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +22,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        $users=User::all();
+        
+       return view('admin.users.index',compact('users'));
     }
 
     /**
@@ -25,7 +34,8 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        $roles = Role::lists('label', 'id');
+        return view('admin.users.create', compact('roles'));
     }
 
     /**
@@ -36,7 +46,18 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user_data=PersonalInformation::create($request->all());
+
+        $user = User::create($request->all());
+
+        //dd($user);
+        
+        $user->personalInformation()->associate(PersonalInformation::find($user_data->id))->save();
+        
+        $user->role()->associate(Role::find($request->role_id))->save();
+        
+
+        return redirect()->route('users.edit', compact('user'));
     }
 
     /**
@@ -58,7 +79,13 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user=User::find($id);
+        $user->load('personalInformation');
+
+        $roles = Role::lists('label', 'id');
+        $colonies = Colony::lists('name', 'id');
+
+        return view('admin.users.edit', compact('user', 'roles', 'colonies'));
     }
 
     /**
@@ -70,7 +97,17 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (empty($request['password'])) {
+            unset($request['password']);
+        }
+        $user=User::find($id);
+        $user->update($request->all());
+
+        $user->personalInformation()->update($request->all());
+
+        $user->syncRoles($request->roles_list);
+
+        return redirect()->route('users.edit', compact('user'));
     }
 
     /**
@@ -81,6 +118,8 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+
+        return redirect()->route('users.index');
     }
 }

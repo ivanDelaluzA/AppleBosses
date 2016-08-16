@@ -18,7 +18,15 @@
 						<div class="panel-title"><h4>COLONIAS CORDOBA VERACRUZ</h4></div>
 					</div><!--.panel-heading-->
 					<div class="panel-body">
-
+						<div class="form-buttons form-group clearfix">
+						    <div class="row">
+						        <div class="col-md-12">
+						            
+						                <a href="{{ route('colonies.create') }}" class="btn btn-primary">Nuevo</a>
+						            
+						        </div>
+						    </div>
+						</div>
 						<div class="overflow-table">
 							<table class="display datatables-basic" id="dataTable">
 								<thead>

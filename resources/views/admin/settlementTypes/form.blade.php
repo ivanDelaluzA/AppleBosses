@@ -5,7 +5,7 @@
                 <div class="inputer floating-label">
                     <div class="input-wrapper">
                         {!! Form::text('name', null, ['class' => 'form-control']) !!}
-                        {!! Form::label('name', trans('settlementTypes.name'), ['class' => 'control-label']) !!}
+                        {!! Form::label('name', 'Nombre', ['class' => 'control-label']) !!}
                     </div>
                 </div>
             </div><!--.form-group-->

@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-
+use App\ColonyScope;
 use App\Http\Requests;
+use Illuminate\Http\Request;
 
 class ColonyScopesController extends Controller
 {
@@ -15,7 +14,8 @@ class ColonyScopesController extends Controller
      */
     public function index()
     {
-        //
+        $scopes=ColonyScope::all();
+        return view('admin.colonyScopes.index', compact('scopes'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ColonyScopesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.colonyScopes.create');
     }
 
     /**
@@ -36,7 +36,8 @@ class ColonyScopesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $scope=ColonyScope::create($request->all());
+        return redirect('colonies/scopes');
     }
 
     /**
@@ -58,7 +59,8 @@ class ColonyScopesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $scope=ColonyScope::find($id);
+        return view('admin.colonyScopes.edit',compact('scope'));
     }
 
     /**
@@ -70,7 +72,9 @@ class ColonyScopesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $scope=ColonyScope::find($id);
+        $scope->update($request->all());
+         return redirect('colonies/scopes/' . $scope->id .'/edit');
     }
 
     /**
@@ -81,6 +85,9 @@ class ColonyScopesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $scope=ColonyScope::find($id);
+        $scope->delete();
+
+        return redirect('colonies/scopes');
     }
 }

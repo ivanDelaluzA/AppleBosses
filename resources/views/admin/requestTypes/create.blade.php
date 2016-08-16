@@ -1,7 +1,7 @@
 
 @extends('layouts.masterComplete')
 
-@section('title', 'Crear Tipo de Captura')
+@section('title', 'Crear Tipo de Documento')
 
 @section('scripts')
     
@@ -15,8 +15,8 @@
                     <div class="panel-title"><h4>TIPO DE CAPTURA</h4></div>
                 </div><!--.panel-heading-->
                 <div class="panel-body">
-                    {!! Form::open(['route' => 'captureTypes.store','method' => 'post' ,'id' => 'createUserForm']) !!}
-                        @include('admin.captureTypes.form', ['submitButtonText' => 'Guardar'])
+                    {!! Form::open(['route' => 'requestsTypes.store','method' => 'post' ,'id' => 'createForm']) !!}
+                        @include('admin.requestTypes.form', ['submitButtonText' => 'Guardar'])
                     {!! Form::close() !!}
                 </div><!--.panel-body-->
             </div><!--.panel-->

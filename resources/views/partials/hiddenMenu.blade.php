@@ -24,14 +24,24 @@
 							<a href="javascript:;">Peticiones</a>
 							<ul class="child-menu">
 								<li><a href="{{ route('requestsStates.index') }}">Estados</a></li>
-								<li><a href="{{ route('requestsTypes.index') }}">Tipòd</a></li>
+								<li><a href="{{ route('requestsTypes.index') }}">Tipos de Documento</a></li>
 							</ul>
 						</li>
 					</ul>
 					
 					<ul class="child-menu">
 						<li>
+						<a href="{{ route('users.index') }}"><i class="fa fa-file"></i> Usuarios</a>
+						</li>
+					</ul>
+					<ul class="child-menu">
+						<li>
 						<a href="{{ route('roles.index') }}"><i class="fa fa-file"></i> Roles</a>
+						</li>
+					</ul>
+					<ul class="child-menu">
+						<li>
+						<a href="{{ route('permissions.index') }}"><i class="fa fa-file"></i> Permisos</a>
 						</li>
 					</ul>
 				</li>

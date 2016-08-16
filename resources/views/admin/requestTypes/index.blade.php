@@ -1,22 +1,20 @@
 @extends('layouts.masterComplete')
 
-@section('title', 'Tipos de Peticion')
+@section('title', 'Tipos de Documento')
 
 @section('styles')
     @parent
     
 @stop
 
-@section('scripts')
-
-@stop
+@include('partials.tableScripts')
 
 @section('content')
 	<div class="row">
 	    <div class="col-md-12">
 	        <div class="panel">
 	            <div class="panel-heading">
-	                <div class="panel-title"><h4>Tipos de Peticion</h4></div>
+	                <div class="panel-title"><h4>Tipos de Documento</h4></div>
 	            </div><!--.panel-heading-->
 	            <div class="panel-body">
 	                <a href="{{ route('requestsTypes.create') }}">
@@ -33,27 +31,29 @@
 
 	                </div><!--.row-->
 					<div class="overflow-table">
-							<table class="display datatables-basic">
+							<table class="display datatables-basic" id="dataTable">
 								<thead>
 									<tr>
-										<th>Tipo de Captura</th>	
+										<th>Tipo de Documento</th>	
 										<th>Color</th>									
 									</tr>
 								</thead>
 	
 								<tfoot>
 									<tr>
-										<th>Tipo de Captura</th>
+										<th>Tipo de Documento</th>
 										<th>Color</th>
 									</tr>
 								</tfoot>
 
 								<tbody>
-									@foreach ($requestsTypes as $captureType)
+									@foreach ($requestsTypes as $requestType)
 									
 				    					<tr>
-											<td><a href="{{ route('requestsTypes.edit', $captureType->id ) }}">{{ $captureType->name }}</a></td>
-											<th>{{  $captureType->color }}</th>										
+											<td>
+											<input type="hidden" id="_url" value="{{ action('RequestTypesController@edit',$requestType)}}">{{ $requestType->name }}</a>
+											</td>
+											<th><button type="button" class="btn btn-default btn-lg" style="background-color:{{ $requestType->color }};"></button></th>										
 										</tr>
 									
 									@endforeach

@@ -12,8 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('public.index');
 });
+Route::resource('public', 'PagesController');
+Route::get('/preguntas-frecuentes', function () {
+    return view('public.cuestions');
+});
+Route::post('constancia', ['as' => 'dirconstancia', 'uses' => 'AppleBossController@invoice']);
+
+Route::resource('requests', 'RequestsController');
+
+
 
 Route::resource('users', 'UsersController');
 Route::resource('colonies/scopes', 'ColonyScopesController');
@@ -23,8 +32,6 @@ Route::resource('colonies', 'ColoniesController');
 Route::resource('permissions', 'PermissionsController');
 
 Route::resource('personalInformations', 'PersonalInformationsController');
-
-Route::resource('requests', 'RequestsController');
 
 Route::resource('requestsStates', 'RequestStatesController');
 

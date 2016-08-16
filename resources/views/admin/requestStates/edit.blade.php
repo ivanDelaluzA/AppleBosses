@@ -22,7 +22,7 @@
                     
                      {!! Form::model($state, [ 'route'=> ['requestsStates.update', $state->id], 'method' => 'PATCH']) !!}
 
-                        @include('admin.states.form', ['submitButtonText' => 'Actualizar'])
+                        @include('admin.requestStates.form', ['submitButtonText' => 'Actualizar'])
 
                     {!! Form::close() !!}
                     <br>

@@ -5,7 +5,7 @@
                 <div class="inputer floating-label">
                     <div class="input-wrapper">
                         {!! Form::text('name', null, ['class' => 'form-control']) !!}
-                        {!! Form::label('name', trans('colonies.name'), ['class' => 'control-label']) !!}
+                        {!! Form::label('name', 'Nombre', ['class' => 'control-label']) !!}
                     </div>
                 </div>
             </div><!--.form-group-->
@@ -15,14 +15,14 @@
                 <div class="inputer floating-label">
                     <div class="input-wrapper">
                         {!! Form::text('zip', null, ['class' => 'form-control']) !!}
-                        {!! Form::label('zip', trans('colonies.zip'), ['class' => 'controlv-label']) !!}
+                        {!! Form::label('zip', 'Codigo Postal', ['class' => 'controlv-label']) !!}
                     </div>
                 </div>
             </div><!--.form-group-->
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                {!! Form::label('settlement_type_id', trans('colonies.settlement_type_id'), ['class' => 'control-label']) !!}
+                {!! Form::label('settlement_type_id', 'Tipo de Asentamiento', ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
                   {!! Form::select('settlement_type_id', $settlements , null, ['class' => 'select2 form-control', 'style' => 'width:100%;']) !!}
                 </div>
@@ -30,7 +30,7 @@
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                {!! Form::label('colony_scope_id', trans('colonies.colony_scope_id'), ['class' => 'control-label']) !!}
+                {!! Form::label('colony_scope_id', 'Ámbito', ['class' => 'control-label']) !!}
                 <div class="input-wrapper">
                   {!! Form::select('colony_scope_id', $scopes, null, ['class' => 'js-example-basic-single form-control', 'style' => 'width: 100%']) !!}
                 </div>

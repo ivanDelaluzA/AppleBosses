@@ -8,15 +8,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title> @yield('title')</title>
-
-	<meta name="description" content="">
-	<meta name="author" content="">
-
 	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="apple-touch-fullscreen" content="yes">
-
 	<!-- BEGIN CORE CSS -->
 	
 	<link rel="stylesheet" href="{{ asset('assets/admin1/css/admin1.css') }}">
@@ -59,41 +54,29 @@
 	
 
 	<link href="{{ asset('assets/globals/css/select2.min.css') }}" rel="stylesheet" />
-	
-	
-	@yield('styles')
 </head>
-<body class="theme-teal">
-	
+<body class="theme-teal" style="background-color: WHITE">
 	@include('partials.mainMenu')
-
-	
 	<div class="content">
-		<div class="page-header full-content bg-purple">
-                <div class="row">
-                    <div class="col-xs-12 col-md-8">
-                        <div class="row">
-                            <div class="col-xs-5 col-sm-5 col-md-5">
-                                <img class="img-logo zoom" src="{{ asset('assets/globals/img/resources/logohidro.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-4 col-sm-4 col-md-4">
-                                <img class="img-logo zoom" src="{{ asset('assets/globals/img/resources/cordoba-solo.png') }}" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-md-4">
-                        <h1 class="pull-right">H. Ayuntamiento De Cordoba<small> Sistema de geolocalizacion de Jefes de Manzana</small></h1>
-                    </div><!--.col-->
-                </div><!--.row-->
-            </div><!--.page-header-->
+		<div class="page-header full-content bg-black">
+			<div class="row">
 
+			
+				<div class="col-md-12">
+							<img class="img-responsive" src="{{ asset('images/indice.png') }}" alt="">
+							<h1 class="pull-right">Córdoba <small>Jefes de Manzana</small></h1>
+						</div>
+						
+					</div><!--.row-->
+					</div><!--.page-header-->
+				@yield('content')
 
-		@yield('content')
-	</div><!--.content-->
+			</div>
+			<!--.content-->
 
-	@include('partials.hiddenMenu')
+			@include('partials.hiddenMenu')
 
-	<!-- BEGIN GLOBAL AND THEME VENDORS -->
+			<!-- BEGIN GLOBAL AND THEME VENDORS -->
 	<script src="{{ asset('assets/globals/js/global-vendors.js') }}"></script>
 	<!-- END GLOBAL AND THEME VENDORS -->
 
@@ -162,6 +145,5 @@
 	<script type="text/javascript">
 		@yield('scripts')
 	</script>
-
-</body>
-</html>
+		</body>
+		</html>

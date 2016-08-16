@@ -2,20 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
+use App\Http\Requests\RoleRequest;
+use App\Permission;
+use App\Role;
+use Illuminate\Http\Request;
 
 class RolesController extends Controller
 {
-    /**
+/**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $roles=Role::all();
+        
+        //return $permissions;
+        return view('admin.roles.index', compact('roles'));
     }
 
     /**
@@ -25,7 +30,8 @@ class RolesController extends Controller
      */
     public function create()
     {
-        //
+        $permissions=Permission::lists('label','id');
+        return view('admin.roles.create',compact('permissions'));
     }
 
     /**
@@ -36,7 +42,10 @@ class RolesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $role=Role::create($request->all());
+        $role->syncPermissions($request->permissions_list);
+
+        return redirect('roles');
     }
 
     /**
@@ -58,7 +67,9 @@ class RolesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $role=Role::find($id);
+        $permissions=Permission::lists('label','id');
+        return view('admin.roles.edit',compact('role','permissions'));
     }
 
     /**
@@ -70,7 +81,11 @@ class RolesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $role=Role::find($id);
+        $role->update($request->all());
+        $role->syncPermissions($request->permissions_list);
+
+        return redirect('roles/' . $role->id .'/edit');
     }
 
     /**
@@ -81,6 +96,9 @@ class RolesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $role=Role::find($id);
+        $role->permissions()->detach();
+        $role->delete();
+        return redirect('roles');
     }
 }

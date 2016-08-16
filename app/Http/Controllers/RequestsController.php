@@ -15,7 +15,7 @@ class RequestsController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -25,7 +25,7 @@ class RequestsController extends Controller
      */
     public function create()
     {
-        //
+        return view('public.requests.create');
     }
 
     /**
@@ -36,7 +36,7 @@ class RequestsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request->all();
     }
 
     /**

@@ -20,16 +20,16 @@
                 </div><!--.panel-heading-->
                 <div class="panel-body">
                     
-                     {!! Form::model($captureType, [ 'route'=> ['captureTypes.update', $captureType->id], 'method' => 'PATCH']) !!}
+                     {!! Form::model($captureType, [ 'route'=> ['requestsTypes.update', $captureType->id], 'method' => 'PATCH']) !!}
 
-                        @include('admin.captureTypes.form', ['submitButtonText' => 'Actualizar'])
+                        @include('admin.requestTypes.form', ['submitButtonText' => 'Actualizar'])
 
                     {!! Form::close() !!}
                     <br>
 
                     
                          
-                        {!! Form::open(['route'=> ['captureTypes.destroy', $captureType->id ], 'method' => 'DELETE']) !!}
+                        {!! Form::open(['route'=> ['requestsTypes.destroy', $captureType->id ], 'method' => 'DELETE']) !!}
                                         <button type="submit" class="btn btn-danger pull-right" >Eliminar
                                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                         </button>

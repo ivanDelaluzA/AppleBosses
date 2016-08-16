@@ -34,7 +34,7 @@ class User extends Authenticatable
 		return $this->belongsToMany(Petition::class);
 	}
 
-	public function roles() {
+	public function role() {
 		return $this->belongsTo(Role::class);
 	}
 

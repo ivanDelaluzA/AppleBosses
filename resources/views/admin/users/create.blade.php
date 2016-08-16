@@ -1,7 +1,7 @@
 
 @extends('layouts.masterComplete')
 
-@section('title', 'Funcionario - index')
+@section('title', 'Usuario - index')
 
 @section('content')
 	<div class="row">
