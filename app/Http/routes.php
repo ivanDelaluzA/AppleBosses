@@ -18,7 +18,7 @@ Route::resource('public', 'PagesController');
 Route::get('/preguntas-frecuentes', function () {
     return view('public.cuestions');
 });
-Route::post('constancia', ['as' => 'dirconstancia', 'uses' => 'AppleBossController@invoice']);
+//Route::post('constancia', ['as' => 'dirconstancia', 'uses' => 'AppleBossController@invoice']);
 
 Route::resource('requests', 'RequestsController');
 

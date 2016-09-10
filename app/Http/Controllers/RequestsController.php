@@ -58,7 +58,7 @@ class RequestsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('public.requests.edit');
     }
 
     /**

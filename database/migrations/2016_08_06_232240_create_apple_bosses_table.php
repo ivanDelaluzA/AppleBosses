@@ -15,6 +15,7 @@ class CreateAppleBossesTable extends Migration
         Schema::create('apple_bosses', function (Blueprint $table) {
             $table->increments('id');
             $table->boolean('is_active');
+            $table->string('email');
 
             $table->bigInteger('personal_information_id')->unsigned()->index()->nullable();
             $table->foreign('personal_information_id')->references('id')->on('personal_informations');

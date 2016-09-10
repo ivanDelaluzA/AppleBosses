@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\AppleBosse;
+use App\Colony;
 use App\Http\Requests;
+use Illuminate\Http\Request;
 
 class AppleBossesController extends Controller
 {
@@ -15,7 +16,8 @@ class AppleBossesController extends Controller
      */
     public function index()
     {
-        //
+        $appleBosses=AppleBosse::all();
+         return view('admin.applebosses.index',compact('appleBosses'));
     }
 
     /**
@@ -25,7 +27,9 @@ class AppleBossesController extends Controller
      */
     public function create()
     {
-        return view('admin.applebosses.create');
+        $colonies=Colony::lists('name','id');
+
+        return view('admin.applebosses.create', compact('colonies'));
     }
 
     /**
@@ -36,7 +40,7 @@ class AppleBossesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request->all();
     }
 
     /**

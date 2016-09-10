@@ -25,6 +25,9 @@ class CreatePersonalInformationsTable extends Migration
             $table->string('mobile_phone', 10)->nullable();
             $table->string('section', 50)->nullable();
             $table->string('block', 80)->nullable();
+            $table->string('street', 80)->nullable();
+            $table->string('number', 80)->nullable();
+            $table->string('interior', 80)->nullable();
             $table->integer('colony_id')->unsigned()->nullable()->index();
             $table->foreign('colony_id')->references('id')->on('colonies');
             $table->timestamps();
