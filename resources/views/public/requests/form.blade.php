@@ -34,13 +34,8 @@
 
 <div class="tab-pane" id="jefe">
 
-	<div class="row">
+	<div class="row" >
 		<div id="map"></div>
-		<input type="text" id="lat" hidden>
-		<input type="text" id="lng" hidden>
-		<input type="text" id="number" hidden>
-		<input type="text" id="route" hidden>
-		<input type="text" id="sublocality" hidden>
 	</div>
 </div>
 <!--.tab-pane-->

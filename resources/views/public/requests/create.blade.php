@@ -55,22 +55,6 @@
 
 </div><!--.panel-->
 
-<!-- Modal -->
-<div class="modal fade" id="defaultModal" role="dialog">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title text-light-green">Determinar su ubicación</h4>
-      </div>
-      <div class="modal-body">
-        <p> Te ayudamos a localizar a tu jefe de manzana mas sercano a tu domicilio </p>
-      </div>
-      <div class="modal-footer" style="text-align: center;">
-        <button type="button" class="btn btn btn-purple btn-ripple" data-dismiss="modal">Entendido</button>
-      </div>
-    </div><!--.modal-content-->
-  </div><!--.modal-dialog-->
-</div><!--.modal-->
 </div>
 
 @stop

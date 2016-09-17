@@ -70,31 +70,14 @@
 			.optionnav{
 				font-size: 14px;
 			}
-			#map{
-				width: 100%;
-				height: 350px;
-			}
-			#map:after {
-				width: 22px;
-				height: 40px;
-				display: block;
-				content: ' ';
-				position: absolute;
-				top: 50%; left: 50%;
-				margin: -40px 0 0 -11px;
-				background: url('https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi_hdpi.png');
-				background-size: 22px 40px; /* Since I used the HiDPI marker version this compensates for the 2x size */
-			}
+			#map {
+		        height: 350px;		      
+		    }
 			
 			
 
 		</style>
-		<script type="text/javascript" src="http://maps.google.com/maps/api/js"></script>
-		<script src="http://www.google.com/jsapi?key=ABQIAAAAlJFc1lrstqhgTl3ZYo38bBQcfCcww1WgMTxEFsdaTsnOXOVOUhTplLhHcmgnaY0u87hQyd-n-kiOqQ"></script>
-
-		<script type="text/javascript">
-			
-		</script>
+		
 	</head>
 	<body>
 		<div class="container-fluid" >
@@ -123,12 +106,92 @@
 
 			<!-- BEGIN INITIALIZATION-->
 			<script>
+
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 17,
+    center: {lat: 18.894303, lng: -96.935227}
+  });
+
+  
+    var marker = new google.maps.Marker({
+        map: map,
+        // Define the place with a location, and a query string.
+        place: {
+          location: {lat: 18.894303 , lng: -96.935227 },
+          query: 'Google, Cordoba, Veracruz'
+
+        },
+    });
+
+    var marker = new google.maps.Marker({
+        map: map,
+        // Define the place with a location, and a query string.
+        place: {
+          location: {lat: 18.893821 , lng: -96.935749 },
+          query: 'Google, Cordoba, Veracruz'
+
+        },
+    });
+
+    var marker = new google.maps.Marker({
+        map: map,
+        // Define the place with a location, and a query string.
+        place: {
+          location: {lat: 18.892933 , lng: -96.935218 },
+          query: 'Google, Cordoba, Veracruz'
+
+        },
+    });
+
+    var marker = new google.maps.Marker({
+        map: map,
+        // Define the place with a location, and a query string.
+        place: {
+          location: {lat: 18.891801 , lng: -96.933748 },
+          query: 'Google, Cordoba, Veracruz'
+
+        },
+    });
+
+    var marker = new google.maps.Marker({
+        map: map,
+        // Define the place with a location, and a query string.
+        place: {
+          location: {lat: 18.896122 , lng: -96.935966 },
+          query: 'Google, Cordoba, Veracruz'
+
+        },
+    });
+
+    var marker = new google.maps.Marker({
+        map: map,
+        // Define the place with a location, and a query string.
+        place: {
+          location: {lat: 18.894726 , lng: -96.937262 },
+          query: 'Google, Cordoba, Veracruz'
+
+        },
+    });
+
+
+  // Opens the InfoWindow when marker is clicked.
+  marker.addListener('click', function() {
+    alert("I am an alert box!");
+  });
+
+}
+
+    </script>
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqPtrytyiXKh610gupYOqseO3-ddP6bNc&callback=initMap&signed_in=true" async defer>
+			</script>
+			<script>
 				$(document).ready(function () {
-					Pleasure.init();
 					Layout.init();
 					FormsWizard.init();
 				});
 			</script>
+			@yield('scripts')
 
 			<!-- END INITIALIZATION-->
 		</body>
