@@ -123,21 +123,27 @@
 	<!-- BEGIN INITIALIZATION-->
 	<script>
 	$(document).ready(function () {
+		$('#dataTable').DataTable( {
+        "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por página",
+            "zeroRecords": "No se encontraron Registros",
+            "info": "Mostrar página _PAGE_ de _PAGES_",
+            "infoEmpty": "No hay registros disponibles",
+            "infoFiltered": "(Se encontraron _MAX_ del total de Registros)"
+            
+        }
+    	} );
+
 		Pleasure.init();
 		Layout.init();
 		TablesDataTables.init();
 		FormsPickers.init();// COLOR SELECTOR
-	});
+    } );
 	</script>
+	
 	<!-- END INITIALIZATION-->
-
-	<!-- BEGIN Google Analytics -->
-	<script>
-		
-	</script>
-	<!-- END Google Analytics -->
 	<script type="text/javascript">
 		@yield('scripts')
 	</script>
-		</body>
-		</html>
+</body>
+</html>

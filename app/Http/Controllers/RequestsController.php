@@ -25,7 +25,7 @@ class RequestsController extends Controller
      */
     public function create()
     {
-        return view('public.requests.mapPrueba');
+        return view('public.requests.create');
     }
 
     /**
