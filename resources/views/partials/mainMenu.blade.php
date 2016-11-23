@@ -12,9 +12,7 @@
 			</div><!--.hamburger-->
 		</div><!--.nav-menu-->
 
-		<div class="nav-search">
-			<span class="search"></span>
-		</div><!--.nav-search-->
+		
 		<!-- END OF ICONS -->
 
 		<div class="nav-bar-border">
@@ -26,7 +24,7 @@
 			<div class="starting-point">
 				<span></span>
 			</div><!--.starting-point-->
-			<div class="logo">HIDROSISTEMA</div><!--.logo-->
+			<div class="logo">JEFES DE MANZANA</div><!--.logo-->
 		</div><!--.overlay-->
 
 		<div class="overlay-secondary"></div><!--.overlay-secondary-->

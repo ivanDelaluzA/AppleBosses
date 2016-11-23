@@ -12609,13 +12609,13 @@ h6 {
   display: block;
   position: absolute;
   z-index: 2;
-  bottom: 100px;
+  bottom: 200px;
   left: -37px;
   -webkit-transform: rotateZ(90deg);
           transform: rotateZ(90deg);
-  font-size: 14px;
+  font-size: 20px;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.3);
+  color: #30c3d6;
   letter-spacing: 10px;
 }
 .overlay.overlay-nav {
